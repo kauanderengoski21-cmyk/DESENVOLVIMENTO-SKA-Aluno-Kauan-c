@@ -6,7 +6,7 @@ class contador {
     this.nome =  nome;
     contador.total++;
   }
-  static resetar (); void {
+  static resetar (): void {
     contador.total = 0;
   }
-}
+}  
