@@ -1,0 +1,67 @@
+.vermelho {
+  height: 500px;
+  width: 300px;
+  background-color: red;
+}
+.azul {
+  height: 300px;
+  width: 300px;
+  background-color: blue;
+}
+
+#caixaVerde {
+  height: 300px;
+  width: 300px;
+  background-color: green;
+}
+h1 {
+  color: yellow;
+}
+
+.calculadora {
+  height: 500px;
+  width: 500px;
+  border: 6px solid rgb(0, 0, 0);
+  display: inline-grid;
+}
+
+.linha {
+  display: inline-flex;
+}
+
+.botao {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border: 1px solid blue;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* ====================== */
+.linha {
+  display: inline-flex;
+  width: 100%;
+}
+
+.centro{
+  margin: auto;
+}
+
+.imgs{
+  width: 300px;
+}
+.imgs2 {
+  width: 300px;
+ margin: auto;
+}
+
+.player{
+  margin: auto;
+}
+
+.Play{
+  display: block;
+  margin: 10px auto;
+}
