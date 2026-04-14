@@ -1,48 +1,48 @@
 <!doctype html>
-
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
+    <script src="calculadora.js"></script>
 
     <title>Minha Primeira Página</title>
   </head>
 
   <body>
     <div class="calculadora">
-      <!-- <input type="number"/> -->
+      
+      <div class="resultado">
+        <input class="resultado"  id="resultado" type="text">
+      
 
       <div class="linha">
-        <div class="botao">+</div>
-        <div class="botao">-</div>
-        <div class="botao">%</div>
-        <div class="botao">X</div>
+        <button onclick="adicionar ('+')" class="botao">+</button>
+        <button onclick="adicionar ('-')" class="botao">-</button>
+        <button onclick="adicionar ('%')" class="botao">%</button>
+        <button onclick="adicionar ('X')" class="botao">X</button>
       </div>
 
       <div class="linha">
-        <div class="botao">7</div>
-        <div class="botao">8</div>
-        <div class="botao">9</div>
-        <div class="botao">C</div>
+        <button onclick="adicionar ('7')" class="botao">7</button>
+        <button onclick="adicionar ('8')" class="botao">8</button>
+        <button onclick="adicionar ('9')" class="botao">9</button>
+        <button onclick="adicionar ()" class="botao">C</button>
       </div>
 
       <div class="linha">
-        <div class="botao">8</div>
-        <div class="botao">7</div>
-        <div class="botao">6</div>
-        <div class="botao">5</div>
+        <button onclick="adicionar ('4')" class="botao">4</button>
+        <button onclick="adicionar ('5')" class="botao">5</button>
+        <button onclick="adicionar ('6')" class="botao">6</button>
+        <button onclick="adicionar ()" class="botao">=</button>
       </div>
 
       <div class="linha">
-        <div class="botao">4</div>
-        <div class="botao">3</div>
-        <div class="botao">2</div>
-        <div class="botao">1</div>
+        <button onclick="adicionar ('1')" class="botao">1</button>
+        <button onclick="adicionar ('2')" class="botao">2</button>
+        <button onclick="adicionar ('3')" class="botao">3</button>
+        <button onclick="adicionar ('0')" class="botao">0</button>
       </div>
-
-      <div class="linha">
-        <div class="botao">0</div>
-      </div>
+      
     </div>
   </body>
 </html>
