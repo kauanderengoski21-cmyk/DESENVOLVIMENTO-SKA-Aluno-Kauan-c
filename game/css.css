@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #333;
+  font-family: sans-serif;
+}
+
+.centro {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.linha {
+  display: inline-flex;
+  gap: 50px;
+}
+
+.player {
+  text-align: center;
+}
+
+
+.player > div {
+  width: 200px;
+  height: 10px;
+  background: #eee;
+  border: 1px solid #333;
+  margin: 10px 0;
+}
+
+.player > div > div {
+  width: 100%;
+  height: 100%;
+  background: #333; 
+}
+
+img {
+  width: 150px;
+  height: auto;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: white;
+  border: 2px solid #333;
+  font-weight: bold;
+}
+
+.console{
+    width: 280px;
+    HEIGHT: 200px;
+    TEXT-ALIGN: center;
+    background-color: #423737;
+
+}
+
