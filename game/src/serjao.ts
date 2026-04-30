@@ -3,7 +3,8 @@ import { personagem } from "./personagem.ts";
     
      constructor (nome: string, forca: number,vida: number){
 
-    super(nome,forca,vida);
+    super(nome,forca,vida,https://montinkantigo.s3.amazonaws.com/data/camisas/serjao-aqui-tem-coragem-5c6f2668bccc3-estampa-301.png
+);
 
      
  }

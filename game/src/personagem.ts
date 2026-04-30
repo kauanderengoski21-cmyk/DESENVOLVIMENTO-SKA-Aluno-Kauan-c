@@ -3,10 +3,13 @@ export abstract class personagem {
    public nome: string = "personagem";
    protected forca: number = 0;
    protected vida: number = 0;
-   protected cura: number = 0
+   protected cura: number = 0;
+   protected imagem:string = "";
 
-   constructor (nome: string, forca: number,vida: number){
+   constructor (nome: string, forca: number,vida: number,
+      imagem:string){
 
+    this.imagem = imagem; 
     this.nome = nome;
     this.forca = forca;
     this.vida = vida; 

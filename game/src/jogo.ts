@@ -1,4 +1,4 @@
-import { personagem } from "../personagem.ts";
+import { personagem } from "./personagem.ts";
 
 export class jogo {
   public iniciar(player1: personagem, player2: personagem) {
