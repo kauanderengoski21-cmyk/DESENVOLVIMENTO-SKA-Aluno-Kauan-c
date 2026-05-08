@@ -3,40 +3,38 @@ import { personagem } from "./personagem.ts";
 import { Serjao } from "./serjao.ts";
 
 export class jogo {
-  public iniciar(player1: personagem, player2: personagem) {
+  public async iniciar(player1: personagem, player2: personagem) {
     let turno = 1;
 
   this.atualizarinterface (player1, player2);
 
     while (player1.CountinuaVivo() && player2.CountinuaVivo) {
-      console.log("\n =========== Game is opens" + turno + "========");
+      player1.log("\n =========== Game is opens" + turno + "========");
       player1.atacar(player2);
   this.atualizarinterface (player1, player2);
-  this.esperaTempo ();
+ await this.esperaTempo ();
       if (!player2.CountinuaVivo()) {
         break;
       }
 
       player2.atacar(player1);
       this.atualizarinterface (player1, player2);
-      this.esperaTempo ();
+      await this.esperaTempo ();
           turno += 1;
 
     }
 
     if (player1.CountinuaVivo()) {
-      console.log(`${player1.nome} I win.`);
+      player2.log(`${player1.nome} I win.`);
     } else {
-      console.log(`${player2.nome} I win.`);
+      player1.log(`${player2.nome} I win.`);
     }
   }
 buscarComponentehtml(id:string){
   return document.getElementById(id);
 }
 
-public log(mensagem:string){
-  this.buscarComponentehtml ("console")!.textContent = mensagem + " \n";
-}
+
 
   public atualizarinterface(jogadorUm: personagem, jogadorDois: personagem) {
     (document.getElementById( "ImgJogador") as HTMLImageElement).src 
@@ -48,8 +46,8 @@ public log(mensagem:string){
      this.buscarComponentehtml("nomeUm")!.textContent  = jogadorUm.nome;
      this.buscarComponentehtml("nomeDois")!.textContent =  jogadorDois.nome;
 
-    this.buscarComponentehtml("saudeUm")!.textContent = "HP: " + jogadorUm. getVida
-    this.buscarComponentehtml("saudeDois")!.textContent = "HP: " + jogadorDois. getVida
+    this.buscarComponentehtml("saudeUm")!.textContent = "HP: " + jogadorUm.getVida();
+    this.buscarComponentehtml("saudeDois")!.textContent = "HP: " + jogadorDois.getVida();
 
   }
 
@@ -70,4 +68,4 @@ function construirJogo(){
   Jogo.iniciar (ninja, serjao);
 }
 
-document.getElementById ("botaoJogar")!.addEventListener ("click", construirJogo);
+document.getElementById("BotaoJogar")!.addEventListener("click", construirJogo);

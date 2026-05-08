@@ -32,6 +32,6 @@ export class Serjao extends personagem {
     const vidaAntes = this.vida;
     this.vida = Math.min(this.vida + valor);
 
-    console.log(`${this.nome} curou ${this.vida - vidaAntes} HP`);
+    this.log(`${this.nome} curou ${this.vida - vidaAntes} HP`);
   }
 }

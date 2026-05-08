@@ -19,9 +19,7 @@ export abstract class personagem {
   sofrerAtaque(dano: number): void {
     this.vida = this.vida - dano;
 
-    console.log(
-      `${this.nome} recebeu ${dano} de dano. vida atual: ${this.vida} `,
-    );
+    this.log(`${this.nome} recebeu ${dano} de dano. vida atual: ${this.vida} `);
   }
 
   public abstract atacar(persona: personagem): void;
@@ -29,7 +27,12 @@ export abstract class personagem {
   getVida() {
     return this.vida;
   }
-  getImg () {
-   return this.imagem;
+  getImg() {
+    return this.imagem;
+  }
+  public log(mensagem: string) {
+    console.log(mensagem);
+
+    document.getElementById("console")!.innerHTML += "<p>" + mensagem + "</p>";
   }
 }
