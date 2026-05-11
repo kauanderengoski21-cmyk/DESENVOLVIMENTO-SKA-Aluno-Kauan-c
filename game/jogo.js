@@ -135,16 +135,16 @@
     }
   };
   function construirJogo() {
-    let ninja2 = new Ninja("ninja", 34, 100);
-    let serjao2 = new Serjao("serjao", 37, 200);
+    let ninja2 = new Ninja("ninja", 20, 200);
+    let serjao2 = new Serjao("serjao", 22, 200);
     let Jogo2 = new jogo();
     Jogo2.iniciar(ninja2, serjao2);
   }
   document.getElementById("BotaoJogar").addEventListener("click", construirJogo);
 
   // src/jpguinho.ts
-  var ninja = new Ninja("ninja", 20, 450);
-  var serjao = new Serjao("serjao", 35, 450);
+  var ninja = new Ninja("ninja", 20, 200);
+  var serjao = new Serjao("serjao", 22, 200);
   var Jogo = new jogo();
   Jogo.iniciar(ninja, serjao);
 })();

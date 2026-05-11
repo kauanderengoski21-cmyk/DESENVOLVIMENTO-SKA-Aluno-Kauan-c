@@ -61,8 +61,8 @@ buscarComponentehtml(id:string){
 
 
 function construirJogo(){
-  let ninja: Ninja = new Ninja ("ninja", 34,100);
-  let serjao:Serjao = new Serjao ("serjao", 37, 200);
+  let ninja: Ninja = new Ninja ("ninja", 20,200);
+  let serjao:Serjao = new Serjao ("serjao", 22, 200);
   
   let Jogo : jogo = new jogo ();
   Jogo.iniciar (ninja, serjao);
