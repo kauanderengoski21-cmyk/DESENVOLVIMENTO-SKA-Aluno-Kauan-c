@@ -18,7 +18,6 @@ export class jogo {
       if (!player2.CountinuaVivo()) {
         break;
       }
-
       player2.atacar(player1);
       this.atualizarinterface(player1, player2);
       await this.esperaTempo();
