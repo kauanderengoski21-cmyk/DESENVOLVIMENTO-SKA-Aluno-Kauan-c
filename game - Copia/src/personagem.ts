@@ -1,0 +1,47 @@
+export abstract class personagem {
+  public nome: string = "personagem";
+  protected forca: number = 0;
+  protected vida: number = 0;
+  protected cura: number = 0;
+  protected imagem: string = "";
+
+  constructor(nome: string, forca: number, vida: number, imagem: string) {
+    this.imagem = imagem;
+    this.nome = nome;
+    this.forca = forca;
+    this.vida = vida;
+  }
+
+  CountinuaVivo(): boolean {
+    return this.vida > 0;
+  }
+
+  sofrerAtaque(dano: number): void {
+    this.vida = this.vida - dano;
+
+    this.log(`${this.nome} recebeu ${dano} de dano. vida atual: ${this.vida} `);
+  }
+
+  public abstract atacar(persona: personagem): void;
+
+  getVida() {
+    return this.vida;
+  }
+
+  public rolarDado(){
+    return Math.random() * (3 - 1) + 1;
+  }
+
+  setImg(novaImg: string){
+    this.imagem = novaImg;
+  }
+
+  getImg() {
+    return this.imagem;
+  }
+  public log(mensagem: string) {
+    console.log(mensagem);
+
+    document.getElementById("console")!.innerHTML += "<p>" + mensagem + "</p>";
+  }
+}
