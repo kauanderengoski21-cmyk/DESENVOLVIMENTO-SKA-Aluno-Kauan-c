@@ -27,6 +27,15 @@ export abstract class personagem {
   getVida() {
     return this.vida;
   }
+
+  public rolarDado(){
+    return Math.random() * (3 - 1) + 1;
+  }
+
+  setImg(novaImg: string){
+    this.imagem = novaImg;
+  }
+
   getImg() {
     return this.imagem;
   }

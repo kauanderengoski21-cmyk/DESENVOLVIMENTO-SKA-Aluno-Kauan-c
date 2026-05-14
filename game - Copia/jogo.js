@@ -23,44 +23,18 @@
     getVida() {
       return this.vida;
     }
+    rolarDado() {
+      return Math.random() * (3 - 1) + 1;
+    }
+    setImg(novaImg) {
+      this.imagem = novaImg;
+    }
     getImg() {
       return this.imagem;
     }
     log(mensagem) {
       console.log(mensagem);
       document.getElementById("console").innerHTML += "<p>" + mensagem + "</p>";
-    }
-  };
-
-  // src/serjao.ts
-  var Serjao = class extends personagem {
-    constructor(nome, forca, vida) {
-      super(
-        nome,
-        forca,
-        vida,
-        "https://montinkantigo.s3.amazonaws.com/data/camisas/serjao-aqui-tem-coragem-5c6f2668bccc3-estampa-301.png"
-      );
-    }
-    atacar(persona) {
-      console.log(`${this.nome} ataque com uma onca: ${persona.nome}`);
-      persona.sofrerAtaque(this.forca);
-    }
-    PalavrasAbencoadas(persona) {
-      const critico = Math.random() < 30;
-      const dano = critico ? this.forca * 2 : this.forca;
-    }
-    FacaoMatador(persona) {
-      const dano = this.forca * 50;
-      console.log(
-        `${this.nome} com esse ataque causou sangramento ${persona.nome}`
-      );
-      persona.sofrerAtaque(dano);
-    }
-    curar(valor) {
-      const vidaAntes = this.vida;
-      this.vida = Math.min(this.vida + valor);
-      this.log(`${this.nome} curou ${this.vida - vidaAntes} HP`);
     }
   };
 
@@ -94,13 +68,59 @@
     }
   };
 
+  // src/serjao.ts
+  var Serjao = class extends personagem {
+    constructor(nome, forca, vida) {
+      super(
+        nome,
+        forca,
+        vida,
+        "https://montinkantigo.s3.amazonaws.com/data/camisas/serjao-aqui-tem-coragem-5c6f2668bccc3-estampa-301.png"
+      );
+    }
+    atacar(persona) {
+      console.log(`${this.nome} ataque com uma onca: ${persona.nome}`);
+      persona.sofrerAtaque(this.forca);
+    }
+    usarHabilidade(opcao, persona) {
+      switch (opcao) {
+        case 1:
+          this.atacar(persona);
+          break;
+        case 2:
+          this.PalavrasAbencoadas(persona);
+          break;
+        case 3:
+          this.FacaoMatador(persona);
+          break;
+      }
+    }
+    PalavrasAbencoadas(persona) {
+      const critico = Math.random() < 30;
+      const dano = critico ? this.forca * 2 : this.forca;
+    }
+    FacaoMatador(persona) {
+      const dano = this.forca * 50;
+      console.log(
+        `${this.nome} com esse ataque causou sangramento ${persona.nome}`
+      );
+      persona.sofrerAtaque(dano);
+    }
+    curar(valor) {
+      const vidaAntes = this.vida;
+      this.vida = Math.min(this.vida + valor);
+      this.log(`${this.nome} curou ${this.vida - vidaAntes} HP`);
+    }
+  };
+
   // src/jogo.ts
   var jogo = class {
     async iniciar(player1, player2) {
       let turno = 1;
       this.atualizarinterface(player1, player2);
       while (player1.CountinuaVivo() && player2.CountinuaVivo) {
-        player1.log("\n =========== Game is opens" + turno + "========");
+        player1.log(`
+ ======== Jogo come\xE7ou! ${turno} ========`);
         player1.atacar(player2);
         this.atualizarinterface(player1, player2);
         await this.esperaTempo();
@@ -113,9 +133,11 @@
         turno += 1;
       }
       if (player1.CountinuaVivo()) {
-        player2.log(`${player1.nome} I win.`);
+        player2.log(`${player1.nome} ganehei essa foi facil.`);
+        document.getElementById("Img2Jogador").src = "https://e7.pngegg.com/pngimages/472/1008/png-clipart-skull-and-bones-skull-and-crossbones-human-skull-symbolism-tuning-logo-head-thumbnail.png";
       } else {
-        player1.log(`${player2.nome} I win.`);
+        document.getElementById("ImgJogador").src = "https://e7.pngegg.com/pngimages/472/1008/png-clipart-skull-and-bones-skull-and-crossbones-human-skull-symbolism-tuning-logo-head-thumbnail.png";
+        player1.log(`${player2.nome} essa foi muito ez.`);
       }
     }
     buscarComponentehtml(id) {
@@ -135,16 +157,10 @@
     }
   };
   function construirJogo() {
-    let ninja2 = new Ninja("ninja", 20, 200);
-    let serjao2 = new Serjao("serjao", 22, 200);
-    let Jogo2 = new jogo();
-    Jogo2.iniciar(ninja2, serjao2);
+    let ninja = new Ninja("ninja", 20, 200);
+    let serjao = new Serjao("serjao", 22, 200);
+    let Jogo = new jogo();
+    Jogo.iniciar(ninja, serjao);
   }
   document.getElementById("BotaoJogar").addEventListener("click", construirJogo);
-
-  // src/jpguinho.ts
-  var ninja = new Ninja("ninja", 20, 200);
-  var serjao = new Serjao("serjao", 22, 200);
-  var Jogo = new jogo();
-  Jogo.iniciar(ninja, serjao);
 })();

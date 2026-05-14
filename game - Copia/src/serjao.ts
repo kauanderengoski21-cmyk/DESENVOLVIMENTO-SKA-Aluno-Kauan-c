@@ -16,6 +16,21 @@ export class Serjao extends personagem {
     persona.sofrerAtaque(this.forca);
   }
 
+  public usarHabilidade(opcao: number, persona: Serjao): void {
+    switch (opcao) {
+      case 1:
+        this.atacar(persona);
+        break;
+      case 2:
+        this.PalavrasAbencoadas(persona);
+        break;
+      case 3:
+        this.FacaoMatador(persona);
+        break;
+     
+    }
+  }
+
   public PalavrasAbencoadas(persona: personagem): void {
     const critico = Math.random() < 30;
     const dano = critico ? this.forca * 2 : this.forca;
